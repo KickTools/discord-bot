@@ -4,6 +4,8 @@ const apiService = require('../services/apiService');
 const config = require('../config/config');
 const { formatUserEmbed, formatLicenseEmbed } = require('../utils/embedFormatters');
 
+const allowedRoles = process.env.ALLOWED_ROLES ? process.env.ALLOWED_ROLES.split(',') : [];
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('customer')
@@ -23,8 +25,7 @@ module.exports = {
                 .setRequired(false)),
 
     async execute(interaction) {
-        if (!interaction.member.roles.cache.some(role => 
-            config.discord.allowedRoles.includes(role.id))) {
+        if (!interaction.member.roles.cache.some(role => allowedRoles.includes(role.id))) {
             await interaction.reply({
                 content: 'You do not have permission to use this command.',
                 flags: ['Ephemeral']
