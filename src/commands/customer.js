@@ -10,7 +10,6 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('customer')
         .setDescription('Retrieve customer information')
-        .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
         .addStringOption(option =>
             option.setName('username')
                 .setDescription('Customer username')
