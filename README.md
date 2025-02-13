@@ -8,25 +8,35 @@ This is a Discord bot that allows authorized users to retrieve customer informat
 - Role-based access control to restrict usage.
 - API integration to fetch customer data.
 
-## Setup Instructions
+## Installation
 
-### **1. Clone the Repository**
+First, clone the repository:
+
 ```sh
 git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
 cd YOUR-REPO
 ```
 
-### **2. Install Dependencies**
+**Important:** Replace `YOUR-USERNAME` with your actual GitHub username and `YOUR-REPO` with your repository’s actual name.
+
+## Setup Instructions
+
+### **1. Install Dependencies**
+Run the following command to install all required dependencies:
+
 ```sh
 npm install
 ```
 
-### **3. Configure Environment Variables**
+### **2. Configure Environment Variables**
 Create a `.env` file from the provided example:
+
 ```sh
 cp .env.example .env
 ```
+
 Edit `.env` and fill in your credentials:
+
 ```ini
 DISCORD_TOKEN=your-discord-bot-token
 API_BASE_URL=https://your-api.com
@@ -36,8 +46,11 @@ ENDPOINT_LICENSE=/customers/license/
 ENDPOINT_EMAIL=/customers/email/
 ```
 
-### **4. Start the Bot**
-Run:
+**Important:** Replace the placeholders with your actual Discord bot token, API base URL, allowed roles, and endpoint URLs.
+
+### **3. Start the Bot**
+Run the bot using:
+
 ```sh
 node src/index.js
 ```
@@ -55,3 +68,8 @@ If you'd like to contribute, fork the repository and submit a pull request.
 
 ---
 
+### **Things to Double-Check:**
+1. **Repository Cloning Permissions:** If your repository is private, ensure users have the correct permissions to clone it.
+2. **Environment Variables:** Verify that all environment variables are correctly set in the `.env` file.
+3. **API Endpoints:** Confirm that the API endpoints are correctly configured and accessible.
+4. **Role-Based Access Control:** Ensure that the allowed roles are correctly set and match the roles in your Discord server.
