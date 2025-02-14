@@ -45,17 +45,17 @@ const formatLicenseEmbed = (data) => {
         })
         .setColor(embedColors.default)
         .setTitle('License Key')
-        .setDescription(data.license.key)
-        .setURL(data.product.setupLink)
+        .setDescription(data.license?.key || "No License Key Found") // Avoids undefined error
+        .setURL(data.product?.setupLink || "https://kicktools.app") // Defaults if missing
         .addFields(
-            { name: 'Setup Link', value: data.product.setupLink },
-            { name: 'Status', value: data.license.status },
-            { name: 'Widget', value: data.product.name, inline: true },
-            { name: 'Kick Username', value: data.username },
-            { name: 'E-Mail', value: data.email },
-            { name: 'Discord', value: data.discordId }
+            { name: 'Setup Link', value: data.product?.setupLink || "N/A" },
+            { name: 'Status', value: data.license?.status || "Unknown" },
+            { name: 'Widget', value: data.product?.name || "Unknown", inline: true },
+            { name: 'Kick Username', value: data.username || "Unknown" },
+            { name: 'E-Mail', value: data.email || "Unknown" },
+            { name: 'Discord', value: data.discordId || "Unknown" }
         )
-        .setThumbnail(data.product.iconUrl)
+        .setThumbnail(data.product?.iconUrl || "https://kicktools.app/default-icon.png") // Prevents undefined errors
         .setTimestamp()
         .setFooter({ 
             text: ' ',
